@@ -32,7 +32,7 @@ if(pathToParent !== false) {
 }
 ```
 
-Usually, `parent-package-json` will use `__dirname` for starting at, it will search the parent folders up until `/` for finding a `package.json` (and stops as soon as it finds one). If you want it to start somewhere other than `__dirname`, provide a path as an argument instead:
+Usually, `parent-package-json` will use `process.cwd()` for starting at, it will search the parent folders up until `/` for finding a `package.json` (and stops as soon as it finds one). If you want it to start somewhere other than `process.cwd()`, provide a path as an argument instead:
 
 ```javascript
 var pathToParent = parent('/My/Cool/Folder').path;

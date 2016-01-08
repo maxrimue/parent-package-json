@@ -35,11 +35,6 @@ describe('Finding files', function() {
   it('should equal to false if no package.json can be found', function() {
     expect(parent('test/first_folder')).to.equal(false);
   });
-  it('should find its own package.json', function() {
-    mock.restore();
-    expect(parent()).to.not.equal(false);
-    mock(mockFs);
-  });
 });
 
 describe('Reading content', function() {
