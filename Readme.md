@@ -1,0 +1,54 @@
+# parent-package-json
+
+[![Build Status](https://travis-ci.org/maxrimue/parent-package-json.svg)](https://travis-ci.org/maxrimue/parent-package-json)
+[![Coverage Status](https://coveralls.io/repos/maxrimue/parent-package-json/badge.svg?branch=master&service=github)](https://coveralls.io/github/maxrimue/parent-package-json?branch=master)
+
+Using parent-package-json, you can find the parent `package.json`, so the `package.json` of the module that uses your module.
+
+```shell
+npm install --save parent-package-json
+```
+
+```javascript
+var parent = require('parent-package-json');
+```
+
+## Getting started
+
+For getting the path to the parent `package.json` of the executing module (so the module that runs this code), simply do:
+
+```javascript
+var pathToParent = parent().path;
+```
+
+If you're not sure if there's _always_ a parent package.json, you can check first, too:
+
+```javascript
+var pathToParent = parent(); // Will return false if no parent exists
+
+if(pathToParent !== false) {
+  pathToParent = pathToParent.path;
+}
+```
+
+Usually, `parent-package-json` will use `__dirname` for starting at, it will search the parent folders up until `/` for finding a `package.json` (and stops as soon as it finds one). If you want it to start somewhere other than `__dirname`, provide a path as an argument instead:
+
+```javascript
+var pathToParent = parent('/My/Cool/Folder').path;
+```
+
+## Processing the data
+
+`parent-package-json` also allows you reading the content of a `package.json`, and even parsing its JSON right away.   
+
+For reading its content, do:
+
+```javascript
+var contentOfParent = parent().read();
+```
+
+If you want to parse its JSON code, you can run:
+
+```javascript
+var JSONOfParent = parent().parse();
+```

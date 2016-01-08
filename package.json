@@ -1,0 +1,40 @@
+{
+  "name": "parent-package-json",
+  "version": "1.0.0",
+  "description": "Find, read and parse the package.json of the parent module",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha",
+    "coverage": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxrimue/parentPackageJSON.git"
+  },
+  "keywords": [
+    "parent",
+    "package.json",
+    "find",
+    "search",
+    "parse",
+    "read"
+  ],
+  "devDependencies": {
+    "chai": "3.x.x",
+    "coveralls": "2.x.x",
+    "istanbul": "0.x.x",
+    "mocha": "2.x.x"
+  },
+  "engines": {
+    "node": ">= 0.10"
+  },
+  "author": "Max Rittmüller",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxrimue/parentPackageJSON/issues"
+  },
+  "homepage": "https://github.com/maxrimue/parentPackageJSON#readme",
+  "dependencies": {
+    "mock-fs": "^3.6.0"
+  }
+}
