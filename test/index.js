@@ -13,7 +13,10 @@ var mockFs = {
         'third_folder': {
           'package.json': '{"version":"1.0.0"}',
           'fourth_folder': {
-            'package.json': '{"version":"3.0.0"}'
+            'package.json': '{"version":"3.0.0"}',
+            'fifth_folder': {
+              'package.json': '{"version":"4.0.0"}'
+            }
           }
         }
       }
@@ -35,6 +38,12 @@ describe('Finding files', function() {
   });
   it('should equal to false if no package.json can be found', function() {
     expect(parent('test/first_folder')).to.equal(false);
+  });
+  it('should ignore one package.json if an ignore parameter is passed', function() {
+    expect(parent('test/first_folder/second_folder/third_folder/fourth_folder', 1).path).to.equal('test/first_folder/package.json');
+  });
+  it('should ignore two package.jsons if an ignore parameter is passed', function() {
+    expect(parent('test/first_folder/second_folder/third_folder/fourth_folder/fifth_folder', 2).path).to.equal('test/first_folder/package.json');
   });
 });
 

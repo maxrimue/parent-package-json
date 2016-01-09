@@ -35,9 +35,16 @@ if(pathToParent !== false) {
 Usually, `parent-package-json` will use `process.cwd()` for starting at, it will search the parent folders up until `/` for finding a `package.json` (and stops as soon as it finds one). If you want it to start somewhere other than `process.cwd()`, provide a path as an argument instead:
 
 ```javascript
-var pathToParent = parent('/My/Cool/Folder').path;
+var pathToParentOfCustomPath = parent('/My/Cool/Folder').path;
 ```
 
+If you want to ignore a `package.json` (for example to find the parent `package.json` of the parent module), you can pass an
+ignore parameter (default: 0) saying how many `package.json`s you want to ignore when searching:
+
+```javascript
+var pathToParentOfParent = parent(null, 1).path; // Or, even more complicated:
+var pathToParentOfParentOfCustomPath = parent('/My/Cool/Folder', 1).path;
+```
 ## Processing the data
 
 `parent-package-json` also allows you reading the content of a `package.json`, and even parsing its JSON right away.   
@@ -52,4 +59,9 @@ If you want to parse its JSON code, you can run:
 
 ```javascript
 var JSONOfParent = parent().parse();
+var versionOfParent = JSONOfParent.version;
+
+// Or
+
+var versionOfParent = parent().parse().version;
 ```
