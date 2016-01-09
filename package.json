@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maxrimue/parentPackageJSON.git"
+    "url": "git+https://github.com/maxrimue/parent-package-json.git"
   },
   "keywords": [
     "parent",
