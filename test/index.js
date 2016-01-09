@@ -40,10 +40,10 @@ describe('Finding files', function() {
     expect(parent('test/first_folder')).to.equal(false);
   });
   it('should ignore one package.json if an ignore parameter is passed', function() {
-    expect(parent('test/first_folder/second_folder/third_folder/fourth_folder', 1).path).to.equal('test/first_folder/package.json');
+    expect(parent('test/first_folder/second_folder/third_folder/fourth_folder', 1).path).to.equal(path.normalize('test/first_folder/package.json'));
   });
   it('should ignore two package.jsons if an ignore parameter is passed', function() {
-    expect(parent('test/first_folder/second_folder/third_folder/fourth_folder/fifth_folder', 2).path).to.equal('test/first_folder/package.json');
+    expect(parent('test/first_folder/second_folder/third_folder/fourth_folder/fifth_folder', 2).path).to.equal(path.normalize('test/first_folder/package.json'));
   });
 });
 
