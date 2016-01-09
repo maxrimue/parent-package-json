@@ -48,17 +48,41 @@ describe('Finding files', function() {
 });
 
 describe('Reading content', function() {
-  it('should be able to read a package.json', function() {
+  it('should be able to find and read a package.json', function() {
     expect(parent('test/first_folder/second_folder/third_folder').path).to.equal(path.normalize('test/first_folder/package.json'));
     expect(parent('test/first_folder/second_folder/third_folder').read()).to.equal('{"version":"2.0.0"}');
+  });
+  it('should not return read function if package.json cannot be found', function() {
+    expect(parent('test/first_folder').read).to.equal(undefined);
+  });
+  it('should read second package.json if ignore parameter equals 1', function() {
+    expect(parent('test/first_folder/second_folder/third_folder/fourth_folder/fifth_folder', 1).path).to.equal(path.normalize('test/first_folder/second_folder/third_folder/package.json'));
+    expect(parent('test/first_folder/second_folder/third_folder/fourth_folder/fifth_folder', 1).read()).to.equal('{"version":"1.0.0"}');
+  });
+  it('should read third package.json if ignore parameter equals 2', function() {
+    expect(parent('test/first_folder/second_folder/third_folder/fourth_folder/fifth_folder', 2).path).to.equal(path.normalize('test/first_folder/package.json'));
+    expect(parent('test/first_folder/second_folder/third_folder/fourth_folder/fifth_folder', 2).read()).to.equal('{"version":"2.0.0"}');
   });
 });
 
 describe('Parsing content', function() {
-  it('should be able to read and parse a package.json', function() {
+  it('should be able to find and parse a package.json', function() {
     expect(parent('test/first_folder/second_folder/third_folder').path).to.equal(path.normalize('test/first_folder/package.json'));
     expect(parent('test/first_folder/second_folder/third_folder').parse()).to.eql({'version': '2.0.0'});
     expect(parent('test/first_folder/second_folder/third_folder').parse().version).to.equal('2.0.0');
+  });
+  it('should not return parse function if package.json cannot be found', function() {
+    expect(parent('test/first_folder').parse).to.equal(undefined);
+  });
+  it('should parse second package.json if ignore parameter equals 1', function() {
+    expect(parent('test/first_folder/second_folder/third_folder/fourth_folder/fifth_folder', 1).path).to.equal(path.normalize('test/first_folder/second_folder/third_folder/package.json'));
+    expect(parent('test/first_folder/second_folder/third_folder/fourth_folder/fifth_folder', 1).parse()).to.eql({"version":"1.0.0"});
+    expect(parent('test/first_folder/second_folder/third_folder/fourth_folder/fifth_folder', 1).parse().version).to.equal('1.0.0');
+  });
+  it('should parse third package.json if ignore parameter equals 2', function() {
+    expect(parent('test/first_folder/second_folder/third_folder/fourth_folder/fifth_folder', 2).path).to.equal(path.normalize('test/first_folder/package.json'));
+    expect(parent('test/first_folder/second_folder/third_folder/fourth_folder/fifth_folder', 2).parse()).to.eql({"version":"2.0.0"});
+    expect(parent('test/first_folder/second_folder/third_folder/fourth_folder/fifth_folder', 2).parse().version).to.equal('2.0.0');
   });
 });
 
