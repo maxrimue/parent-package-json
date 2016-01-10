@@ -45,6 +45,8 @@ ignore parameter (default: 0) saying how many `package.json`s you want to ignore
 var pathToParentOfParent = parent(null, 1).path; // Or, even more complicated:
 var pathToParentOfParentOfCustomPath = parent('/My/Cool/Folder', 1).path;
 ```
+
+__Note__: The module's own `package.json` is __always__ ignored, even if the ignore parameter equals 0
 ## Processing the data
 
 `parent-package-json` also allows you reading the content of a `package.json`, and even parsing its JSON right away.   
