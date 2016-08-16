@@ -21,9 +21,7 @@
   ],
   "devDependencies": {
     "ava": "^0.16.0",
-    "chai": "3.x.x",
     "coveralls": "2.x.x",
-    "mocha": "2.x.x",
     "nyc": "^8.1.0"
   },
   "engines": {
