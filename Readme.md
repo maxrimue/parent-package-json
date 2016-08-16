@@ -3,6 +3,8 @@
 [![Build Status](https://travis-ci.org/maxrimue/parent-package-json.svg)](https://travis-ci.org/maxrimue/parent-package-json)
 [![Build status](https://ci.appveyor.com/api/projects/status/7rnfm4fct6y31ii6?svg=true)](https://ci.appveyor.com/project/maxrimue/parent-package-json)
 [![Coverage Status](https://coveralls.io/repos/maxrimue/parent-package-json/badge.svg?branch=master&service=github)](https://coveralls.io/github/maxrimue/parent-package-json?branch=master)
+[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
+
 
 Using parent-package-json, you can find the parent `package.json`, so the `package.json` of the module that uses your module.
 
