@@ -11,7 +11,7 @@ test('ignore one package.json', t => {
 });
 
 test('read package.json', t => {
-	t.is(parent('./fixtures/firstFolder/secondFolder').read(), '{\n\t"version": "1.0.0"\n}\n');
+	t.deepEqual(JSON.parse(parent('./fixtures/firstFolder/secondFolder').read()), {version: '1.0.0'});
 });
 
 test('parse package.json', t => {
