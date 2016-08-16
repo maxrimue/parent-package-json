@@ -23,7 +23,7 @@
     "chai": "3.x.x",
     "coveralls": "2.x.x",
     "istanbul": "0.x.x",
-    "mocha": "2.x.x"
+    "mocha": "3.0.2"
   },
   "engines": {
     "node": ">= 0.10"
