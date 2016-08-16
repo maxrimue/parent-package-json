@@ -27,7 +27,7 @@
     "nyc": "^8.1.0"
   },
   "engines": {
-    "node": ">= 0.10"
+    "node": ">= 4"
   },
   "author": "Max Rittmüller",
   "license": "ISC",
