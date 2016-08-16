@@ -1,12 +1,13 @@
+const path = require('path');
 const test = require('ava').test;
 const parent = require('../lib/index.js');
 
 test('find right package.json', t => {
-	t.is(parent('./fixtures/firstFolder/secondFolder').path, 'fixtures/firstFolder/package.json');
+	t.is(parent('./fixtures/firstFolder/secondFolder').path, path.normalize('fixtures/firstFolder/package.json'));
 });
 
 test('ignore one package.json', t => {
-	t.is(parent('./fixtures/firstFolder/secondFolder/thirdFolder/fourthFolder', 1).path, 'fixtures/firstFolder/package.json');
+	t.is(parent('./fixtures/firstFolder/secondFolder/thirdFolder/fourthFolder', 1).path, path.normalize('fixtures/firstFolder/package.json'));
 });
 
 test('read package.json', t => {
