@@ -4,8 +4,8 @@
   "description": "Find, read and parse the package.json of the parent module",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha",
-    "coverage": "node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- -R spec ./test/*"
+    "test": "nyc mocha",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -22,9 +22,9 @@
   "devDependencies": {
     "chai": "3.x.x",
     "coveralls": "2.x.x",
-    "istanbul": "0.x.x",
     "mocha": "2.x.x",
-		"mock-fs": "^3.6.0"
+    "mock-fs": "^3.6.0",
+    "nyc": "^8.1.0"
   },
   "engines": {
     "node": ">= 0.10"
