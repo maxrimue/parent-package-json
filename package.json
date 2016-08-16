@@ -23,7 +23,8 @@
     "chai": "3.x.x",
     "coveralls": "2.x.x",
     "istanbul": "0.x.x",
-    "mocha": "2.x.x"
+    "mocha": "2.x.x",
+		"mock-fs": "^3.6.0"
   },
   "engines": {
     "node": ">= 0.10"
@@ -33,8 +34,5 @@
   "bugs": {
     "url": "https://github.com/maxrimue/parentPackageJSON/issues"
   },
-  "homepage": "https://github.com/maxrimue/parentPackageJSON#readme",
-  "dependencies": {
-    "mock-fs": "^3.6.0"
-  }
+  "homepage": "https://github.com/maxrimue/parentPackageJSON#readme"
 }
