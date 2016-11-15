@@ -22,7 +22,7 @@
   "devDependencies": {
     "ava": "^0.16.0",
     "coveralls": "2.x.x",
-    "nyc": "^8.1.0",
+    "nyc": "^9.0.1",
     "xo": "^0.17.0"
   },
   "engines": {
