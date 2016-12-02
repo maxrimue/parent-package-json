@@ -18,4 +18,4 @@ git config --global push.default simple
 
 git add yarn.lock
 git commit -m "chore: update yarn.lock"
-git push "https://"$PUSH_TOKEN"@github.com/"$TRAVIS_REPO_SLUG".git"
+git push "https://"$PUSH_TOKEN"@github.com/"$TRAVIS_REPO_SLUG".git" "HEAD:"$TRAVIS_PULL_REQUEST_BRANCH
