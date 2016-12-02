@@ -3,10 +3,12 @@ language: node_js
 
 os:
   - linux
-  - osx
 
 after_script: npm run coverage
 
 node_js:
   - 4
   - 6
+
+after_success:
+  - bash yarn.sh
