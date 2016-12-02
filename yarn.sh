@@ -5,8 +5,10 @@ if [[ $TRAVIS_PULL_REQUEST_BRANCH != *"greenkeeper"* ]]; then
 	exit 0
 fi
 
-git fetch origin
-git checkout $TRAVIS_PULL_REQUEST_BRANCH
+if [[ $TRAVIS_COMMIT != *"update"* ]]; then
+	# Not a commit updating a dependency
+	exit 0
+fi
 
 # Run yarn to create/update lockfile
 yarn
