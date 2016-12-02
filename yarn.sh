@@ -5,6 +5,7 @@ if [[ $TRAVIS_PULL_REQUEST_BRANCH != *"greenkeeper"* ]]; then
 	exit 0
 fi
 
+git fetch origin
 git checkout $TRAVIS_PULL_REQUEST_BRANCH
 
 # Run yarn to create/update lockfile
