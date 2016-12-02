@@ -5,6 +5,11 @@ if [[ $TRAVIS_PULL_REQUEST_BRANCH != *"greenkeeper"* ]]; then
 	exit 0
 fi
 
+git clone "https://"$PUSH_TOKEN"@github.com/"$TRAVIS_REPO_SLUG".git" repo
+cd repo
+
+git checkout $TRAVIS_PULL_REQUEST_BRANCH
+
 # See if commit message includes "update"
 git log --name-status HEAD^..HEAD | grep "update" || exit 0
 
@@ -18,5 +23,4 @@ git config --global push.default simple
 
 git add yarn.lock
 git commit -m "chore: update yarn.lock"
-git rebase $TRAVIS_PULL_REQUEST_BRANCH
-git push "https://"$PUSH_TOKEN"@github.com/"$TRAVIS_REPO_SLUG".git" "HEAD:"$TRAVIS_PULL_REQUEST_BRANCH
+git push
