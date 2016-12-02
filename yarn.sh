@@ -5,10 +5,8 @@ if [[ $TRAVIS_PULL_REQUEST_BRANCH != *"greenkeeper"* ]]; then
 	exit 0
 fi
 
-if [[ $TRAVIS_COMMIT != *"update"* ]]; then
-	# Not a commit updating a dependency
-	exit 0
-fi
+# See if commit message includes "update"
+git log --name-status HEAD^..HEAD | grep "update" || exit 0
 
 # Run yarn to create/update lockfile
 yarn
