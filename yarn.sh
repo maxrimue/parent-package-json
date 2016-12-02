@@ -8,6 +8,8 @@ fi
 # See if commit message includes "update"
 git log --name-status HEAD^..HEAD | grep "update" || exit 0
 
+git reset --hard origin/"$TRAVIS_PULL_REQUEST_BRANCH"
+
 # Run yarn to create/update lockfile
 yarn
 
