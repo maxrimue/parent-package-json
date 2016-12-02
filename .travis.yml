@@ -11,4 +11,4 @@ node_js:
   - 6
 
 after_success:
-  - test $TRAVIS_PULL_REQUEST == "true" && bash yarn.sh
+  - bash yarn.sh
