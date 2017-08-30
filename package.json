@@ -1,6 +1,6 @@
 {
   "name": "parent-package-json",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Find, read and parse the package.json of the parent module",
   "main": "lib/index.js",
   "scripts": {
