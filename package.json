@@ -3,6 +3,7 @@
   "version": "2.0.1",
   "description": "Find, read and parse the package.json of the parent module",
   "main": "lib/index.js",
+	"typings": "lib/index.d.ts",
   "scripts": {
     "test": "xo && nyc ava",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
