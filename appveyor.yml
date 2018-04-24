@@ -5,10 +5,11 @@ environment:
     - nodejs_version: "4"
     - nodejs_version: "6"
     - nodejs_version: "8"
+		- nodejs_version: "9"
 
 install:
   - ps: Install-Product node $env:nodejs_version
-  - yarn install
+  - npm i
 
 test_script:
   - cmd: npm t
