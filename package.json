@@ -12,8 +12,8 @@
 	},
 	"keywords": ["parent", "package.json", "find", "search", "parse", "read"],
 	"devDependencies": {
-		"ava": "^0.25.0",
-		"xo": "^0.20.3"
+		"ava": "^1.1.0",
+		"xo": "^0.24.0"
 	},
 	"engines": {
 		"node": ">= 4"
