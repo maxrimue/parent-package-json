@@ -1,7 +1,7 @@
 # parent-package-json
 
 [![Build Status](https://travis-ci.org/maxrimue/parent-package-json.svg)](https://travis-ci.org/maxrimue/parent-package-json)
-[![Build status](https://ci.appveyor.com/api/projects/status/7rnfm4fct6y31ii6?svg=true)](https://ci.appveyor.com/project/maxrimue/parent-package-json)
+[![Build status](https://ci.appveyor.com/api/projects/status/7rnfm4fct6y31ii6?svg=true)](https://ci.appveyor.com/project/maxrimue/parent-package-json) [![Greenkeeper badge](https://badges.greenkeeper.io/maxrimue/parent-package-json.svg)](https://greenkeeper.io/)
 
 Using parent-package-json, you can find the parent `package.json`, so the `package.json` of the module that uses your module.
 
