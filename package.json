@@ -10,7 +10,14 @@
 		"type": "git",
 		"url": "git+https://github.com/maxrimue/parent-package-json.git"
 	},
-	"keywords": ["parent", "package.json", "find", "search", "parse", "read"],
+	"keywords": [
+		"parent",
+		"package.json",
+		"find",
+		"search",
+		"parse",
+		"read"
+	],
 	"devDependencies": {
 		"ava": "^1.1.0",
 		"xo": "^0.24.0"
