@@ -1,5 +1,5 @@
 import path from 'path';
-import {test} from 'ava';
+import test from 'ava';
 import parent from '../lib';
 
 test('find right package.json', t => {
