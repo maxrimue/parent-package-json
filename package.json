@@ -4,7 +4,7 @@
 	"description": "Find, read and parse the package.json of the parent module",
 	"main": "lib/index.js",
 	"scripts": {
-		"test": "xo && ava"
+		"test": "prettier --check **/*.js && xo && ava"
 	},
 	"repository": {
 		"type": "git",
@@ -20,6 +20,7 @@
 	],
 	"devDependencies": {
 		"ava": "^1.1.0",
+		"prettier": "^1.16.4",
 		"xo": "^0.24.0"
 	},
 	"engines": {
