@@ -2,10 +2,11 @@
 	"name": "parent-package-json",
 	"version": "2.0.1",
 	"description": "Find, read and parse the package.json of the parent module",
-	"main": "build/index.js",
+	"main": "build/lib/index.js",
 	"scripts": {
 		"build": "tsc",
-		"test": "prettier --check '**/*.(json|js|ts)' && xo && ava"
+		"test": "prettier --check '**/*.(json|js|ts)' && xo && ava",
+		"prepublish": "npm run build"
 	},
 	"repository": {
 		"type": "git",
@@ -18,6 +19,9 @@
 		"search",
 		"parse",
 		"read"
+	],
+	"files": [
+		"build/lib"
 	],
 	"devDependencies": {
 		"ava": "^5.1.0",
