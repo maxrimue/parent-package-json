@@ -17,7 +17,7 @@ To get the nearest parent `package.json`s path, content (as string) or parsed co
 ```javascript
 const parent = parent();
 
-const pathToParentPackageJSON = parent.path;
+const pathToParentPackageJSON = parent.path.relative;
 const parentContentAsString = parent.read();
 const parentContentAsObject = parent.parse();
 
