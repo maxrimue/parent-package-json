@@ -3,41 +3,41 @@ import parent from "./index.js";
 import { expect, it } from "vitest";
 
 it.only("finds the right package.json", () => {
-	const packagePath = parent({
-		startPath: "../fixtures/firstFolder/secondFolder",
-	}).path;
-	const expected = path.normalize("../fixtures/firstFolder/package.json");
+	const result = parent({
+		startPath: "fixtures/firstFolder/secondFolder",
+	});
+	const expected = path.normalize("fixtures/firstFolder/package.json");
 
-	expect(packagePath).toBe(expected);
+	expect(result.path.relative).toBe(expected);
 });
 
 it("ignores one package.json", () => {
-	const packagePath = parent({
-		startPath: "../fixtures/firstFolder/secondFolder/thirdFolder/fourthFolder",
+	const result = parent({
+		startPath: "fixtures/firstFolder/secondFolder/thirdFolder/fourthFolder",
 		ignoreCount: 1,
-	}).path;
-	const expected = path.normalize("../fixtures/firstFolder/package.json");
+	});
+	const expected = path.normalize("fixtures/firstFolder/package.json");
 
-	expect(packagePath).toBe(expected);
+	expect(result.path.relative).toBe(expected);
 });
 
 it("reads package.json", () => {
-	const packageContent = parent({
-		startPath: "../fixtures/firstFolder/secondFolder",
-	}).read();
-	const packageVersion = JSON.parse(packageContent!).version;
+	const result = parent({
+		startPath: "fixtures/firstFolder/secondFolder",
+	});
+	const packageVersion = JSON.parse(result.read() ?? "{}").version;
 
-	expect(packageContent).toBeDefined();
+	expect(result).toBeDefined();
 	expect(packageVersion).toBe("1.0.0");
 });
 
 it("parses package.json", () => {
-	const packageJSON = parent({
-		startPath: "../fixtures/firstFolder/secondFolder",
-	}).parse();
+	const result = parent({
+		startPath: "fixtures/firstFolder/secondFolder",
+	});
 	const expected = { version: "1.0.0" };
 
-	expect(packageJSON).toEqual(expected);
+	expect(result.parse()).toEqual(expected);
 });
 
 it("fails at finding package.json", () => {
