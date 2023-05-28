@@ -2,7 +2,7 @@ import path from "path";
 import parent from "./index.js";
 import { expect, it } from "vitest";
 
-it.only("finds the right package.json", () => {
+it("finds the right package.json", () => {
 	const result = parent({
 		startPath: "fixtures/firstFolder/secondFolder",
 	});
@@ -45,5 +45,6 @@ it("fails at finding package.json", () => {
 
 	expect(result.parse()).toBeUndefined();
 	expect(result.read()).toBeUndefined();
-	expect(result.path).toBeUndefined();
+	expect(result.path.absolute).toBeUndefined();
+	expect(result.path.relative).toBeUndefined();
 });
