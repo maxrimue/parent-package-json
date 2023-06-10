@@ -22,10 +22,10 @@ type Result = {
 };
 
 /** Looks for the nearest parent package.json. */
-const parentPackageJSON = ({
-	startPath = process.cwd(),
-	ignoreCount = 0,
-}: Parameters): Result => {
+const parentPackageJSON = (params: Parameters | undefined): Result => {
+	const startPath = params?.startPath ?? process.cwd();
+	const ignoreCount = params?.ignoreCount ?? 0;
+
 	const root = path.parse(process.cwd()).root;
 
 	let currentSearchPath = path.join(startPath, "/..");
