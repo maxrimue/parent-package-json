@@ -1,13 +1,13 @@
 # parent-package-json
 
-Using parent-package-json, you can find the parent `package.json`, so the `package.json` of the module that uses your module.
+Find, read and parse the `package.json` that sits above your module. Provide a custom ignore count or start path to define where to look for a parent package.
 
 ```shell
 npm install --save parent-package-json
 ```
 
 ```javascript
-import parent from "parent-package-json";
+import parentJSON from "parent-package-json";
 ```
 
 ## Getting Started
@@ -15,7 +15,7 @@ import parent from "parent-package-json";
 To get the nearest parent `package.json`s path, content (as string) or parsed content (using JSON.parse):
 
 ```javascript
-const parent = parent();
+const parent = parentJSON();
 
 const pathToParentPackageJSON = parent.path.relative;
 const parentContentAsString = parent.read();
@@ -24,11 +24,11 @@ const parentContentAsObject = parent.parse();
 const parentVersion = parentContentAsObject.version;
 ```
 
-The parent `package.json` is looked up starting from the current working directory of your script. If none is found, `.path`, `.read()` and `.parse()` will return `undefined`.
+The parent `package.json` is looked up starting from the current working directory of your script. If none is found, paths, `.read()` and `.parse()` will return `undefined`.
 
 ## Custom Path and Ignore Count
 
-If you need to determine the parent `package.json` of a custom path instead of the current working directory, you can specify it via the `path` option:
+If you need to determine the parent `package.json` of a custom path instead of the current working directory, which should be the module from which you are running the code, you can specify it via the `path` option:
 
 ```javascript
 const startPath = path.join(...);
@@ -41,4 +41,4 @@ You can also specify a count of parent directories to skip:
 const parent = parent({ ignoreCount: 1 });
 ```
 
-**Note**: The module's own `package.json` is **always** ignored, even if the ignore parameter equals 0.
+**Note**: A `package.json` file in the provided `startPath` is always ignored. Set the `startPath` one layer below the one where you expect to find a parent package file.
