@@ -22,7 +22,7 @@ type Result = {
 };
 
 /** Looks for the nearest parent package.json. */
-const parentPackageJSON = (params: Parameters | undefined): Result => {
+const parentPackageJSON = (params?: Parameters): Result => {
 	const startPath = params?.startPath ?? process.cwd();
 	const ignoreCount = params?.ignoreCount ?? 0;
 
